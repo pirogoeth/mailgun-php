@@ -9,9 +9,9 @@ use Mailgun\Exception;
  */
 class HttpServerException extends \RuntimeException implements Exception
 {
-    public static function serverError()
+    public static function serverError($httpStatus = 500)
     {
-        return new self('An unexpected error occurred at Mailgun\' servers. Try again later and contact support of the error sill exists. ');
+        return new self('An unexpected error occurred at Mailgun\'s servers. Try again later and contact support of the error sill exists.', $httpStatus);
     }
 
     public static function networkError(\Exception $previous)

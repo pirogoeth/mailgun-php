@@ -20,6 +20,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             ->method('sendRequest');
 
         $client = new \Mailgun\Mailgun('api-key', $httpClient);
+
         return $this->getMockBuilder($this->getApiClass())
             ->setMethods(array('get', 'post', 'postRaw', 'delete', 'put'))
             ->setConstructorArgs(array($client))

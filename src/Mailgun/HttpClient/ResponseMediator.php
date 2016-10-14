@@ -53,7 +53,7 @@ class ResponseMediator
             case 502:
             case 503:
             case 504:
-                throw HttpServerException::serverError();
+                throw HttpServerException::serverError($httpStatus);
             default:
                 throw HttpServerException::unknownHttpResponseCode($httpStatus);
         }

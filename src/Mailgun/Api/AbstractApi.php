@@ -52,7 +52,6 @@ abstract class AbstractApi
         return ResponseMediator::getContent($response);
     }
 
-
     /**
      * Send a POST request with JSON-encoded parameters.
      *
