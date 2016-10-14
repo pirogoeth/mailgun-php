@@ -26,9 +26,8 @@ use Http\Client\Common\Plugin;
 
 /**
  * This class is the base class for the Mailgun SDK.
- * See the official documentation (link below) for usage instructions.
  *
- * @link https://github.com/mailgun/mailgun-php/blob/master/README.md
+ * @method Api\Stats stats()
  */
 class Mailgun
 {
@@ -92,6 +91,22 @@ class Mailgun
         }
 
         return $api;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws \BadMethodCallException
+     *
+     * @return mixed
+     */
+    public function __call($name, $args)
+    {
+        try {
+            return $this->api($name);
+        } catch (\InvalidArgumentException $e) {
+            throw new \BadMethodCallException(sprintf('Undefined method called: "%s"', $name));
+        }
     }
 
     /**
