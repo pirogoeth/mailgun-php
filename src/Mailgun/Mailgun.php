@@ -92,7 +92,6 @@ class Mailgun
         $this->httpClient = $clientConfigurator->createConfiguredClient();
         $this->requestFactory = MessageFactoryDiscovery::find();
         $this->serializer = $serializer ?: new ObjectSerializer();
-
     }
 
     /**
@@ -107,6 +106,10 @@ class Mailgun
         switch ($name) {
             case 'stats':
                 $api = new Api\Stats($this->httpClient, $this->requestFactory, $this->serializer);
+                break;
+            case 'domains':
+            case 'domain':
+                $api = new Api\Domain($this->httpClient, $this->requestFactory, $this->serializer);
                 break;
             default:
                 throw new \InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name));

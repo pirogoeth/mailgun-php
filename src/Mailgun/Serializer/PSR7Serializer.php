@@ -17,7 +17,7 @@ class PSR7Serializer implements ResponseSerializer
      *
      * @return ResponseInterface
      */
-    public function deserialze(ResponseInterface $response, $class)
+    public function deserialize(ResponseInterface $response, $class)
     {
         return $response;
     }

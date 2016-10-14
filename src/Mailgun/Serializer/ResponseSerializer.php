@@ -15,5 +15,5 @@ interface ResponseSerializer
      *
      * @return mixed
      */
-    public function deserialze(ResponseInterface $response, $class);
+    public function deserialize(ResponseInterface $response, $class);
 }
