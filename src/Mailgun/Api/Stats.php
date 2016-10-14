@@ -2,6 +2,8 @@
 
 namespace Mailgun\Api;
 
+use Mailgun\Assert;
+
 /**
  * {@link https://documentation.mailgun.com/api-stats.html}
  *
@@ -9,13 +11,17 @@ namespace Mailgun\Api;
  */
 class Stats extends AbstractApi
 {
-    public function total($domain, array $params)
+    public function total($domain, array $params = [])
     {
+        Assert::stringNotEmpty($domain);
+
         return $this->get(sprintf('/v3/%s/stats/total', $domain), $params);
     }
 
-    public function all($domain, array $params)
+    public function all($domain, array $params = [])
     {
+        Assert::stringNotEmpty($domain);
+
         return $this->get(sprintf('/v3/%s/stats', $domain), $params);
     }
 }
