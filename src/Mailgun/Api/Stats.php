@@ -2,7 +2,11 @@
 
 namespace Mailgun\Api;
 
-
+/**
+ * {@link https://documentation.mailgun.com/api-stats.html}
+ *
+ * @author Tobias Nyholm <tobias.nyholm@gmail.com>
+ */
 class Stats extends AbstractApi
 {
     public function total($domain, array $params)

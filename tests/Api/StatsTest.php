@@ -2,6 +2,9 @@
 
 namespace Mailgun\Tests\Api;
 
+/**
+ * @author Tobias Nyholm <tobias.nyholm@gmail.com>
+ */
 class StatsTest extends TestCase
 {
     protected function getApiClass()
