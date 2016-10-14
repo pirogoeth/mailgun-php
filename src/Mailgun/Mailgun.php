@@ -12,6 +12,7 @@ namespace Mailgun;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
+use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Discovery\UriFactoryDiscovery;
 use Mailgun\Connection\RestClient;
@@ -67,7 +68,10 @@ class Mailgun
             ]),
         ];
 
-        $this->httpClient = new HttpMethodsClient(new PluginClient($httpClient, $plugins), MessageFactoryDiscovery::find());
+        $this->httpClient = new HttpMethodsClient(
+            new PluginClient($httpClient ?: HttpClientDiscovery::find(), $plugins),
+            MessageFactoryDiscovery::find()
+        );
     }
 
     /**
