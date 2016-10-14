@@ -16,7 +16,7 @@ class Stats extends AbstractApi
         Assert::stringNotEmpty($domain);
 
         // TODO build StatsResponse object
-        return $this->get(sprintf('/v3/%s/stats/total', $domain), $params);
+        return $this->get(sprintf('/v3/%s/stats/total', rawurlencode($domain)), $params);
     }
 
     public function all($domain, array $params = [])
@@ -24,6 +24,6 @@ class Stats extends AbstractApi
         Assert::stringNotEmpty($domain);
 
         // TODO build StatsResponse object
-        return $this->get(sprintf('/v3/%s/stats', $domain), $params);
+        return $this->get(sprintf('/v3/%s/stats', rawurlencode($domain)), $params);
     }
 }
