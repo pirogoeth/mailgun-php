@@ -26,6 +26,16 @@ class StatsTest extends TestCase
         $api->total('domain', $data);
     }
 
+    /**
+     * @expectedException \Mailgun\Exception\InvalidArgumentException
+     */
+    public function testTotalInvalidArgument()
+    {
+        $api = $this->getApiMock();
+
+        $api->total('');
+    }
+
     public function testAll()
     {
         $data = [
@@ -38,5 +48,15 @@ class StatsTest extends TestCase
             ->with('/v3/domain/stats', $data);
 
         $api->all('domain', $data);
+    }
+
+    /**
+     * @expectedException \Mailgun\Exception\InvalidArgumentException
+     */
+    public function testAllInvalidArgument()
+    {
+        $api = $this->getApiMock();
+
+        $api->all('');
     }
 }
