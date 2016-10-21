@@ -19,7 +19,7 @@ use Mailgun\Resource\Api\Domains\SettingsUpdateResponse;
 use Mailgun\Resource\Api\SimpleResponse;
 
 /**
- * {@link https://documentation.mailgun.com/api-domains.html}
+ * {@link https://documentation.mailgun.com/api-domains.html}.
  *
  * @author Sean Johnson <sean@mailgun.com>
  */
@@ -38,10 +38,10 @@ class Domains extends AbstractApi
         Assert::integer($limit);
         Assert::integer($skip);
 
-        $params = array(
+        $params = [
             'limit' => $limit,
-            'skip'  => $skip,
-        );
+            'skip' => $skip,
+        ];
 
         $response = $this->get('/v3/domains', $params);
 
@@ -51,7 +51,7 @@ class Domains extends AbstractApi
     /**
      * Returns a single domain.
      *
-     * @param string    $domain     Name of the domain.
+     * @param string $domain Name of the domain.
      *
      * @return DomainResponse
      */
@@ -67,12 +67,12 @@ class Domains extends AbstractApi
     /**
      * Creates a new domain for the account.
      * See below for spam filtering parameter information.
-     * {@link https://documentation.mailgun.com/user_manual.html#um-spam-filter}
+     * {@link https://documentation.mailgun.com/user_manual.html#um-spam-filter}.
      *
-     * @param string    $domain     Name of the domain.
-     * @param string    $smtpPass   Password for SMTP authentication.
-     * @param string    $spamAction `disable` or `tag` - inbound spam filtering.
-     * @param bool      $wildcard   Domain will accept email for subdomains.
+     * @param string $domain     Name of the domain.
+     * @param string $smtpPass   Password for SMTP authentication.
+     * @param string $spamAction `disable` or `tag` - inbound spam filtering.
+     * @param bool   $wildcard   Domain will accept email for subdomains.
      *
      * @return ComplexDomain
      */
@@ -84,12 +84,12 @@ class Domains extends AbstractApi
         Assert::stringNotEmpty($spamAction);
         Assert::boolean($wildcard);
 
-        $params = array(
-            'name'          => $domain,
+        $params = [
+            'name' => $domain,
             'smtp_password' => $smtpPass,
-            'spam_action'   => $spamAction,
-            'wildcard'      => $wildcard,
-        );
+            'spam_action' => $spamAction,
+            'wildcard' => $wildcard,
+        ];
 
         $response = $this->post('/v3/domains', $params);
 
@@ -100,7 +100,7 @@ class Domains extends AbstractApi
      * Removes a domain from the account.
      * WARNING: This action is irreversible! Be cautious!
      *
-     * @param string    $domain     Name of the domain.
+     * @param string $domain Name of the domain.
      *
      * @return ...
      */
@@ -116,7 +116,7 @@ class Domains extends AbstractApi
     /**
      * Returns a list of SMTP credentials for the specified domain.
      *
-     * @param string    $domain     Name of the domain.
+     * @param string $domain Name of the domain.
      *
      * @return CredentialsListResponse
      */
@@ -126,10 +126,10 @@ class Domains extends AbstractApi
         Assert::integer($limit);
         Assert::integer($skip);
 
-        $params = array(
+        $params = [
             'limit' => $limit,
-            'skip'  => $skip,
-        );
+            'skip' => $skip,
+        ];
 
         $response = $this->get(sprintf('/v3/domains/%s/credentials', $domain), $params);
 
@@ -139,9 +139,9 @@ class Domains extends AbstractApi
     /**
      * Create a new SMTP credential pair for the specified domain.
      *
-     * @param string    $domain     Name of the domain.
-     * @param string    $login      SMTP Username.
-     * @param string    $pass       SMTP Password. Length min 5, max 32.
+     * @param string $domain Name of the domain.
+     * @param string $login  SMTP Username.
+     * @param string $pass   SMTP Password. Length min 5, max 32.
      *
      * @return CredentialResponse
      */
@@ -152,10 +152,10 @@ class Domains extends AbstractApi
         Assert::stringNotEmpty($pass);
         Assert::lengthBetween($pass, 5, 32, 'SMTP password must be between 5 and 32 characters.');
 
-        $params = array(
-            'login'     => $login,
-            'password'  => $pass,
-        );
+        $params = [
+            'login' => $login,
+            'password' => $pass,
+        ];
 
         $response = $this->post(sprintf('/v3/domains/%s/credentials', $domain), $params);
 
@@ -165,9 +165,9 @@ class Domains extends AbstractApi
     /**
      * Update a set of SMTP credentials for the specified domain.
      *
-     * @param string    $domain     Name of the domain.
-     * @param string    $login      SMTP Username.
-     * @param string    $pass       New SMTP Password. Length min 5, max 32.
+     * @param string $domain Name of the domain.
+     * @param string $login  SMTP Username.
+     * @param string $pass   New SMTP Password. Length min 5, max 32.
      *
      * @return CredentialResponse
      */
@@ -178,9 +178,9 @@ class Domains extends AbstractApi
         Assert::stringNotEmpty($pass);
         Assert::lengthBetween($pass, 5, 32, 'SMTP password must be between 5 and 32 characters.');
 
-        $params = array(
-            'password'  => $pass,
-        );
+        $params = [
+            'password' => $pass,
+        ];
 
         $response = $this->put(
             sprintf(
@@ -197,8 +197,8 @@ class Domains extends AbstractApi
     /**
      * Remove a set of SMTP credentials from the specified domain.
      *
-     * @param string    $domain     Name of the domain.
-     * @param string    $login      SMTP Username.
+     * @param string $domain Name of the domain.
+     * @param string $login  SMTP Username.
      *
      * @return ...
      */
@@ -222,7 +222,7 @@ class Domains extends AbstractApi
     /**
      * Returns delivery connection settings for the specified domain.
      *
-     * @param string    $domain     Name of the domain.
+     * @param string $domain Name of the domain.
      *
      * @return DeliverySettingsResponse
      */
@@ -251,7 +251,7 @@ class Domains extends AbstractApi
         Assert::nullOrBoolean($requireTLS);
         Assert::nullOrBoolean($noVerify);
 
-        $params = array();
+        $params = [];
 
         if (null !== $requireTLS) {
             $params['require_tls'] = $requireTLS ? 'true' : 'false';
@@ -266,5 +266,3 @@ class Domains extends AbstractApi
         return $this->serializer->deserialize($response, SettingsUpdateResponse::class);
     }
 }
-
-?>

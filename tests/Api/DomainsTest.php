@@ -57,6 +57,6 @@ class DomainsTest extends TestCase
         $this->assertNotNull($domain->getDomain());
         $this->assertNotNull($domain->getInboundDNSRecords());
         $this->assertNotNull($domain->getOutboundDNSRecords());
-        $this->assertEquals($domain->getDomain()->getState(), "active");
+        $this->assertEquals($domain->getDomain()->getState(), 'active');
     }
 }
