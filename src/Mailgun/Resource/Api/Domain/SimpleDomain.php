@@ -78,7 +78,6 @@ class SimpleDomain implements CreatableFromArray
             $item['state'],
             new \DateTime($item['created_at'])
         );
-
     }
 
     /**

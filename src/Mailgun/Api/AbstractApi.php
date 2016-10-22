@@ -82,9 +82,9 @@ abstract class AbstractApi
     /**
      * Send a POST request with parameters encoded as multipart-stream form data.
      *
-     * @param string $path          Request path.
-     * @param array $parameters     POST parameters to be mutipart-stream-encoded.
-     * @param array $requestHeaders Request headers.
+     * @param string $path           Request path.
+     * @param array  $parameters     POST parameters to be mutipart-stream-encoded.
+     * @param array  $requestHeaders Request headers.
      *
      * @return ResponseInterface
      */
@@ -136,9 +136,9 @@ abstract class AbstractApi
     /**
      * Send a PUT request with parameters encoded as multipart-stream form data.
      *
-     * @param string $path          Request path.
-     * @param array $parameters     PUT parameters to be mutipart-stream-encoded.
-     * @param array $requestHeaders Request headers.
+     * @param string $path           Request path.
+     * @param array  $parameters     PUT parameters to be mutipart-stream-encoded.
+     * @param array  $requestHeaders Request headers.
      *
      * @return ResponseInterface
      */
@@ -170,9 +170,9 @@ abstract class AbstractApi
     /**
      * Send a DELETE request with parameters encoded as multipart-stream form data.
      *
-     * @param string $path          Request path.
-     * @param array $parameters     DELETE parameters to be mutipart-stream-encoded.
-     * @param array $requestHeaders Request headers.
+     * @param string $path           Request path.
+     * @param array  $parameters     DELETE parameters to be mutipart-stream-encoded.
+     * @param array  $requestHeaders Request headers.
      *
      * @return ResponseInterface
      */
@@ -184,10 +184,10 @@ abstract class AbstractApi
     /**
      * Send a request with parameters encoded as multipart-stream form data.
      *
-     * @param string $type          Request type. (POST, PUT, etc.)
-     * @param string $path          Request path.
-     * @param array $parameters     POST parameters to be mutipart-stream-encoded.
-     * @param array $requestHeaders Request headers.
+     * @param string $type           Request type. (POST, PUT, etc.)
+     * @param string $path           Request path.
+     * @param array  $parameters     POST parameters to be mutipart-stream-encoded.
+     * @param array  $requestHeaders Request headers.
      *
      * @return ResponseInterface
      */
@@ -196,9 +196,9 @@ abstract class AbstractApi
         Assert::oneOf(
             $type,
             [
-                "DELETE",
-                "POST",
-                "PUT",
+                'DELETE',
+                'POST',
+                'PUT',
             ]
         );
 

@@ -16,12 +16,12 @@ use Mailgun\Resource\CreatableFromArray;
 class DeliverySettingsResponse implements CreatableFromArray
 {
     /**
-     * @var boolean
+     * @var bool
      */
     private $noVerify;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $requireTLS;
 
@@ -46,8 +46,8 @@ class DeliverySettingsResponse implements CreatableFromArray
     }
 
     /**
-     * @param boolean $noVerify   Disable remote TLS certificate verification 
-     * @param boolean $requireTLS Requires TLS for all outbound communication
+     * @param bool $noVerify   Disable remote TLS certificate verification
+     * @param bool $requireTLS Requires TLS for all outbound communication
      */
     public function __construct($noVerify, $requireTLS)
     {
@@ -56,7 +56,7 @@ class DeliverySettingsResponse implements CreatableFromArray
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getSkipVerification()
     {
@@ -64,7 +64,7 @@ class DeliverySettingsResponse implements CreatableFromArray
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getRequireTLS()
     {

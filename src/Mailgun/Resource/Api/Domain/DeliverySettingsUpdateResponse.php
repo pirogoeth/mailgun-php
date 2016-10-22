@@ -18,12 +18,12 @@ use Mailgun\Resource\Api\SimpleResponse;
 class DeliverySettingsUpdateResponse extends SimpleResponse implements CreatableFromArray
 {
     /**
-     * @var boolean
+     * @var bool
      */
     private $noVerify;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $requireTLS;
 
@@ -50,9 +50,9 @@ class DeliverySettingsUpdateResponse extends SimpleResponse implements Creatable
     }
 
     /**
-     * @param string  $message
-     * @param boolean $noVerify
-     * @param boolean $requireTLS
+     * @param string $message
+     * @param bool   $noVerify
+     * @param bool   $requireTLS
      */
     public function __construct($message, $noVerify, $requireTLS)
     {
@@ -62,7 +62,7 @@ class DeliverySettingsUpdateResponse extends SimpleResponse implements Creatable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getSkipVerification()
     {
@@ -70,7 +70,7 @@ class DeliverySettingsUpdateResponse extends SimpleResponse implements Creatable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getRequireTLS()
     {

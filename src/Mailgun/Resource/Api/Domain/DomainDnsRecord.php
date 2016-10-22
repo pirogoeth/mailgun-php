@@ -70,11 +70,11 @@ class DomainDnsRecord implements CreatableFromArray
     }
 
     /**
-     * @param string|null $name Name of the record, as used in CNAME, etc.
-     * @param string $type DNS record type
-     * @param string $value DNS record value
+     * @param string|null $name     Name of the record, as used in CNAME, etc.
+     * @param string      $type     DNS record type
+     * @param string      $value    DNS record value
      * @param string|null $priority Record priority, used for MX
-     * @param string $valid DNS record has been added to domain DNS?
+     * @param string      $valid    DNS record has been added to domain DNS?
      */
     public function __construct($name, $type, $value, $priority, $valid)
     {

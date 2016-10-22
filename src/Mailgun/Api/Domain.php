@@ -14,7 +14,6 @@ use Mailgun\Resource\Api\Domain\ComplexDomain;
 use Mailgun\Resource\Api\Domain\Credential;
 use Mailgun\Resource\Api\Domain\CredentialListResponse;
 use Mailgun\Resource\Api\Domain\DeliverySettingsResponse;
-use Mailgun\Resource\Api\Domain\DomainResponse;
 use Mailgun\Resource\Api\Domain\DomainListResponse;
 use Mailgun\Resource\Api\Domain\SettingsUpdateResponse;
 use Mailgun\Resource\Api\SimpleResponse;
